@@ -1,0 +1,30 @@
+<p>search for letter or word</p>
+<div class="search">
+  <input
+    type="text"
+    class="search-input"
+    [(ngModel)]="search"
+    (ngModelChange)="onInputChange($event)"
+    placeholder="Enter Search Value!"
+  />
+  <ul class="search-result">
+    <li class="search-result-loading" *ngIf="isLoadingSearchTerm">
+      <b>Fetching...</b>
+    </li>
+    <li
+      class="search-result-noresult"
+      *ngIf="!hasErrorSearchTerm && records && records.length === 0"
+    >
+      <b>:( No Result Found</b>
+    </li>
+    <li class="search-result-error" *ngIf="hasErrorSearchTerm">
+      <b>:( Something Went Wrong</b>
+    </li>
+    <ng-container *ngIf="records">
+      <li class="search-result-list" *ngFor="let record of records">
+        <b class="search-result-list-title">{{ record.word }}</b>
+        <p class="search-result-list-info">{{ record.definition }}</p>
+      </li>
+    </ng-container>
+  </ul>
+</div>

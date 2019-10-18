@@ -1,0 +1,103 @@
+*
+  box-sizing: border-box
+.search
+  position: relative
+  display: block
+  margin: auto
+  max-width: 400px
+  &-input
+    padding: 10px
+    border: 1px solid #ddd
+    width: 100%
+    outline: 0
+  &-result
+    position: absolute
+    list-style: none
+    top: calc(100% - 1px)
+    left: 0
+    width: 100%
+    padding: 0
+    margin: 0
+    border: 1px solid #ddd
+    text-align: left
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    max-height: 290px
+    overflow: auto
+    &-loading
+      padding: 5px
+      b
+        display: block
+        position: relative
+        color: transparent
+        overflow: hidden
+        &:after
+          content: "-"
+          display: block
+          width: 30px
+          height: 6px
+          background: rgb(2,0,36)
+          background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
+          animation-duration: 4s
+          animation-name: fetch
+          animation-iteration-count: infinite
+          left: 0
+          position: absolute
+          top: 8px
+          border-radius: 4px
+    &-noresult
+      padding: 5px
+      b
+        color: red
+    &-error
+      padding: 5px
+      b
+        color: #fff
+        display: block
+        padding: 5px
+        background: #a01e1e
+    &-list
+      padding: 5px
+      border-bottom: 1px solid #ddd
+
+      &:last-child
+        border-bottom: 0
+      &-title
+        display: inline-block
+        &:after
+          content: " : "
+      &-info
+        margin: 3px 0 0 0
+        font-size: 14px
+@keyframes fetch
+  0%
+    left: 0
+  25%
+    left: calc(100% - 30px)
+  50%
+    left: 0
+  75%
+    left: calc(100% - 30px)
+  100%
+    left: 0
+@-webkit-keyframes fetch
+  0%
+    left: 0
+  25%
+    left: calc(100% - 30px)
+  50%
+    left: 0
+  75%
+    left: calc(100% - 30px)
+  100%
+    left: 0
+@-moz-keyframes fetch
+  0%
+    left: 0
+  25%
+    left: calc(100% - 30px)
+  50%
+    left: 0
+  75%
+    left: calc(100% - 30px)
+  100%
+    left: 0
